@@ -67,3 +67,19 @@ When you have finished your work, you can deploy it on your IBM i without changi
     ```sh
     (venv) -bash-5.1$ python webapi.py
     ```
+
+8. Now you can test via HTTP in your browser
+
+You also can see logs in `log/webapi.log`
+
+
+## Environments (dev, prod, test)
+By default the Flask DevelopmentConfig will be taken
+```python
+app.config.from_object(flask_config.DevelopmentConfig())
+```
+In this configuration the `HOST` variable is set to `0.0.0.0` which means you can also access it from outside the server. <br />
+This is defined, that you can run tests from your local machine.
+
+For security reason on production system it's highly recommended to use an http proxy like Apache or NGinx to reroute the request internal to your python service. <br />
+Because of this on production system `HOST` variable is set to `127.0.0.1`. <br />
