@@ -1,0 +1,6 @@
+
+# pyodbc will be installed on IBM i with: yum install python39-pyodbc 
+pyodbc>=0.5.1
+
+Flask>=2.0.1
+gunicorn>=20.1.0

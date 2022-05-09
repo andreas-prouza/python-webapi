@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
+    <title>Content of a table</title>
+
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet" href="https://adminlte.io/themes/v3/plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="https://adminlte.io/themes/v3/plugins/jqvmap/jqvmap.min.css">
+    <link rel="stylesheet" href="https://adminlte.io/themes/v3/dist/css/adminlte.min.css?v=3.2.0">
+    <link rel="stylesheet" href="https://adminlte.io/themes/v3/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+    <link rel="stylesheet" href="https://adminlte.io/themes/v3/plugins/daterangepicker/daterangepicker.css">
+    <link rel="stylesheet" href="https://adminlte.io/themes/v3/plugins/summernote/summernote-bs4.min.css">    
+</head>
+
+<body>
+    
+    <h1>Table results</h1>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <!--- <th>Auswahl</th> -->
+                {% for key, value in table[0].items() %}
+                <th style="padding: 5px">{{ key }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+
+        {% for row in table %}
+        <tr>
+            {% for key, value in row.items() %}<td style="padding: 5px">{{ value }}</td>{% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+
+</body>
+
+</html>

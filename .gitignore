@@ -1,0 +1,4 @@
+.vscode
+**/venv
+**/log/*
+webapi/etc/webapi.pid
