@@ -1,4 +1,5 @@
 .vscode
 **/venv
 **/log/*
+**/__pycache__
 webapi/etc/webapi.pid

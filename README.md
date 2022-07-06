@@ -12,23 +12,36 @@ When you have finished your work, you can deploy it on your IBM i without changi
 ## Setup your WebAPI
 
 1. Requirements
-   * Install ODBC driver
+   * Install IBM i ODBC Driver
+     * Download the ACS PASE App (IBMiAccess_v1r1_PASE_AP.zip)
+     * Extract it
+     * Go into the ppc64 directory
+       
+       There you should find a file like ```ibm-iaccess-1.1.0.15-0.ibmi7.2.ppc64.rpm```
+     * Install this ODBC Driver file via YUM
+
+        ```sh
+        yum install unixODBC ibm-iaccess-1.1.0.15-0.ibmi7.2.ppc64.rpm
+        ```
+
+        You can check your ODBC settings using the `odbcinst` command
+
+        ```sh
+        -bash-5.1$ odbcinst -j
+        unixODBC 2.3.9
+        DRIVERS............: /QOpenSys/etc/odbcinst.ini
+        SYSTEM DATA SOURCES: /QOpenSys/etc/odbc.ini
+        FILE DATA SOURCES..: /QOpenSys/etc/ODBCDataSources
+        USER DATA SOURCES..: /home/PROUZA/.odbc.ini
+        SQLULEN Size.......: 8
+        SQLLEN Size........: 8
+        SQLSETPOSIROW Size.: 8
+        ```
+
+   * Install Python ODBC driver
      
      ```sh
-     -bash-5.1$ yum install python39 python39-devel unixODBC python39-pyodbc python39-wheel python39-six python39-setuptools python39-pandas
-     ```
-     You can check your ODBC settings using the `odbcinst` command
-
-     ```sh
-     -bash-5.1$ odbcinst -j
-     unixODBC 2.3.9
-     DRIVERS............: /QOpenSys/etc/odbcinst.ini
-     SYSTEM DATA SOURCES: /QOpenSys/etc/odbc.ini
-     FILE DATA SOURCES..: /QOpenSys/etc/ODBCDataSources
-     USER DATA SOURCES..: /home/PROUZA/.odbc.ini
-     SQLULEN Size.......: 8
-     SQLLEN Size........: 8
-     SQLSETPOSIROW Size.: 8
+     -bash-5.1$ yum install python39 python39-devel python39-pyodbc python39-wheel python39-six python39-setuptools python39-pandas
      ```
 
 2. Go into your directory
